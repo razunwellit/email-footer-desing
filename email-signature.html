@@ -3,95 +3,98 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Email Signature – Georgia Sims</title>
+<title>Email Signature – Georgia Sims (v2)</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #f4f4f4; padding: 40px 20px; font-family: Arial, sans-serif; }
 
   .sig-wrap {
-    max-width: 640px;
+    max-width: 580px;
     background: #ffffff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
     overflow: hidden;
   }
 
-  /* ── TOP SECTION ── */
-  .sig-top {
-    padding: 22px 24px 18px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
+  /* ── RED ACCENT BAR ── */
+  .sig-accent {
+    height: 4px;
+    background: #c0392b;
   }
-  .sig-left { display: flex; align-items: flex-start; gap: 18px; }
 
-  .avatar-initials {
-    width: 72px;
-    height: 72px;
-    border-radius: 50%;
-    border: 2.5px solid #c0392b;
-    background: #fff0ee;
+  /* ── PROFILE SECTION ── */
+  .sig-profile {
+    padding: 20px 24px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-family: Georgia, serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: #c0392b;
+    gap: 18px;
+  }
+
+  .sig-profile img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 2.5px solid #c0392b;
+    object-fit: cover;
+    display: block;
     flex-shrink: 0;
   }
 
-  .sig-info { padding-top: 2px; }
+  .sig-profile-info {
+    flex: 1;
+    min-width: 0;
+  }
 
-  .sig-name {
-    font-size: 20px;
+  .sig-profile-name {
+    font-size: 19px;
     font-weight: 700;
     color: #1a1a1a;
     letter-spacing: -0.3px;
     font-family: Georgia, serif;
   }
 
-  .sig-title {
-    font-size: 11px;
+  .sig-profile-title {
+    font-size: 10.5px;
     font-weight: 700;
     letter-spacing: 1.8px;
     text-transform: uppercase;
     color: #c0392b;
-    margin-top: 4px;
+    margin-top: 3px;
     font-family: Arial, sans-serif;
   }
 
-  .sig-contacts { margin-top: 12px; display: flex; flex-direction: column; gap: 5px; }
-
-  .sig-contact-row {
+  .sig-profile-contact {
+    margin-top: 8px;
     display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
+    flex-wrap: wrap;
+    gap: 4px 18px;
+    font-size: 12.5px;
     color: #444444;
     font-family: Arial, sans-serif;
   }
-  .sig-contact-row .label {
+
+  .sig-profile-contact .label {
     font-weight: 700;
     color: #aaaaaa;
-    font-size: 11px;
+    font-size: 10.5px;
     min-width: 14px;
-  }
-
-  /* ── RIGHT BUTTONS + SOCIAL ── */
-  .sig-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 10px;
-    flex-shrink: 0;
-  }
-
-  .btn-cta {
     display: inline-block;
-    padding: 9px 16px;
-    font-size: 11px;
+  }
+
+  /* ── CTA ROW ── */
+  .sig-cta-row {
+    padding: 14px 24px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid #eeeeee;
+    border-bottom: 1px solid #eeeeee;
+  }
+
+  .sig-cta-row .btn-cta {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.4px;
     text-transform: uppercase;
@@ -99,143 +102,168 @@
     text-align: center;
     font-family: Arial, sans-serif;
     border-radius: 2px;
-    cursor: pointer;
+    white-space: nowrap;
   }
-  .btn-stocklist { background: #c0392b; color: #ffffff; border: none; }
-  .btn-book { background: #ffffff; color: #c0392b; border: 1.5px solid #c0392b; }
 
-  .social-icons { display: flex; gap: 8px; align-items: center; }
+  .btn-stocklist {
+    background: #c0392b;
+    color: #ffffff;
+    border: none;
+  }
 
-  .social-icon {
-    width: 32px;
-    height: 32px;
+  .btn-book {
+    background: #ffffff;
+    color: #c0392b;
+    border: 1.5px solid #c0392b;
+  }
+
+  .sig-cta-row .social-group {
+    margin-left: auto;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .sig-cta-row .social-group a {
+    display: block;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    line-height: 30px;
     text-decoration: none;
   }
-  .social-icon svg { width: 16px; height: 16px; fill: #ffffff; }
 
-  /* ── DIVIDER ── */
-  .sig-divider {
-    height: 1px;
-    background: linear-gradient(to right, #c0392b 30%, #eeeeee 100%);
-    margin: 0 24px;
+  .sig-cta-row .social-group a svg {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
   }
 
-  /* ── DARK FOOTER ── */
+  /* ── FOOTER ── */
   .sig-footer {
     background: #1a1a1a;
-    display: flex;
-    align-items: stretch;
+    padding: 16px 24px;
   }
 
-  .sig-addresses {
-    padding: 18px 22px;
+  .sig-footer-main {
+    display: flex;
+    gap: 20px;
+  }
+
+  .sig-footer-addr {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    border-right: 1px solid #333333;
+    gap: 8px;
   }
 
-  .sig-addr-label {
+  .sig-footer-addr .loc {
+    display: flex;
+    gap: 12px;
+  }
+
+  .sig-footer-addr .loc-label {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1.8px;
     color: #999999;
     font-family: Arial, sans-serif;
     text-transform: uppercase;
+    min-width: 32px;
   }
-  .sig-addr-text {
-    font-size: 12.5px;
+
+  .sig-footer-addr .loc-text {
+    font-size: 12px;
     color: #dddddd;
     font-family: Arial, sans-serif;
-    margin-top: 2px;
   }
-  .sig-addr-phone {
-    font-size: 12px;
+
+  .sig-footer-phone {
+    font-size: 11.5px;
     color: #999999;
     font-family: Arial, sans-serif;
-    margin-top: 8px;
+    margin-top: 4px;
   }
-  .sig-addr-web { color: #c0392b; text-decoration: none; }
 
-  /* ── BRAND BLOCK ── */
-  .sig-brand {
-    padding: 18px 22px;
+  .sig-footer-phone a {
+    color: #c0392b;
+    text-decoration: none;
+  }
+
+  .sig-footer-brand {
+    min-width: 200px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
-    min-width: 200px;
   }
-  .sig-brand-tag {
+
+  .sig-footer-brand .tag {
     font-size: 10px;
     color: #888888;
     font-family: Arial, sans-serif;
     letter-spacing: 0.5px;
     text-transform: uppercase;
   }
-  .sig-brand-logo {
+
+  .sig-footer-brand .logo-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-top: 6px;
+    margin-top: 5px;
   }
-  .sig-brand-icon {
-    width: 38px;
-    height: 38px;
-    background: #c0392b;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 3px;
+
+  .sig-footer-brand .logo-row img {
+    width: 34px;
+    height: 34px;
+    display: block;
   }
-  .sig-brand-rp {
-    font-size: 16px;
-    font-weight: 900;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    letter-spacing: -1px;
-  }
-  .sig-brand-name {
-    font-size: 22px;
+
+  .sig-footer-brand .logo-row .brand-name {
+    font-size: 20px;
     font-weight: 700;
     color: #ffffff;
     font-family: Arial, sans-serif;
     letter-spacing: -0.5px;
   }
-  .sig-brand-name span { color: #c0392b; }
-  .sig-brand-sub {
-    font-size: 10px;
+
+  .sig-footer-brand .logo-row .brand-name span {
+    color: #c0392b;
+  }
+
+  .sig-footer-brand .sub {
+    font-size: 9.5px;
     color: #888888;
     font-family: Arial, sans-serif;
-    margin-top: 6px;
+    margin-top: 5px;
     line-height: 1.4;
   }
 
   /* ── TAGLINE BAR ── */
   .sig-tagline {
-    padding: 12px 24px;
+    padding: 10px 24px;
     background: #111111;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 12px;
   }
+
   .sig-tagline-text {
-    font-size: 13px;
+    font-size: 12px;
     color: #cccccc;
     font-family: Arial, sans-serif;
   }
-  .sig-tagline-text span { color: #c0392b; font-weight: 700; }
+
+  .sig-tagline-text span {
+    color: #c0392b;
+    font-weight: 700;
+  }
 
   .btn-portal {
-    padding: 8px 14px;
-    font-size: 10px;
+    padding: 7px 12px;
+    font-size: 9.5px;
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -251,82 +279,72 @@
 </head>
 <body>
 
-<table cellpadding="0" cellspacing="0" border="0" style="max-width:640px;width:100%;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;background:#ffffff;font-family:Arial,sans-serif;">
+<table cellpadding="0" cellspacing="0" border="0" style="max-width:580px;width:100%;border:1px solid #e0e0e0;border-radius:8px;overflow:hidden;background:#ffffff;font-family:Arial,sans-serif;">
 
-  <!-- TOP SECTION -->
+  <!-- PROFILE SECTION -->
   <tr>
-    <td style="padding:22px 24px 18px;">
+    <td style="padding:20px 24px;">
       <table cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
-          <!-- Avatar + Info -->
-          <td style="vertical-align:top;">
-            <table cellpadding="0" cellspacing="0" border="0">
+          <td style="vertical-align:middle;width:64px;padding-right:18px;">
+            <img src="profile.jpeg" alt="Georgia Sims" style="width:64px;height:64px;border-radius:50%;border:2.5px solid #c0392b;object-fit:cover;display:block;">
+          </td>
+          <td style="vertical-align:middle;">
+            <p style="font-size:19px;font-weight:700;color:#1a1a1a;letter-spacing:-0.3px;font-family:Georgia,serif;margin:0;">Georgia Sims</p>
+            <p style="font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#c0392b;margin:3px 0 0;font-family:Arial,sans-serif;">Broker Manager</p>
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;">
               <tr>
-                <!-- Avatar -->
-                <td style="vertical-align:top;padding-right:18px;">
-                  <img src="profile.jpeg" alt="Georgia Sims" style="width:72px;height:72px;border-radius:50%;border:2.5px solid #c0392b;object-fit:cover;display:block;">
-                </td>
-                <!-- Name / Title / Contact -->
-                <td style="vertical-align:top;padding-top:2px;">
-                  <p style="font-size:20px;font-weight:700;color:#1a1a1a;letter-spacing:-0.3px;font-family:Georgia,serif;margin:0;">Georgia Sims</p>
-                  <p style="font-size:11px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:#c0392b;margin:4px 0 0;font-family:Arial,sans-serif;">Broker Manager</p>
-                  <table cellpadding="0" cellspacing="0" border="0" style="margin-top:12px;">
-                    <tr>
-                      <td style="font-size:11px;font-weight:700;color:#aaaaaa;padding-right:8px;vertical-align:middle;">E</td>
-                      <td style="font-size:13px;color:#444444;font-family:Arial,sans-serif;vertical-align:middle;">georgia@rpprospects.com</td>
-                    </tr>
-                    <tr><td colspan="2" style="height:5px;"></td></tr>
-                    <tr>
-                      <td style="font-size:11px;font-weight:700;color:#aaaaaa;padding-right:8px;vertical-align:middle;">M</td>
-                      <td style="font-size:13px;color:#444444;font-family:Arial,sans-serif;vertical-align:middle;">0414 383 166</td>
-                    </tr>
-                  </table>
-                </td>
+                <td style="font-size:10.5px;font-weight:700;color:#aaaaaa;padding-right:8px;vertical-align:middle;white-space:nowrap;">E</td>
+                <td style="font-size:12.5px;color:#444444;font-family:Arial,sans-serif;vertical-align:middle;padding-right:18px;">georgia@rpprospects.com</td>
+                <td style="font-size:10.5px;font-weight:700;color:#aaaaaa;padding-right:8px;vertical-align:middle;white-space:nowrap;">M</td>
+                <td style="font-size:12.5px;color:#444444;font-family:Arial,sans-serif;vertical-align:middle;">0414 383 166</td>
               </tr>
             </table>
           </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
 
-          <!-- Right: Buttons + Social -->
-          <td style="vertical-align:top;text-align:right;padding-left:16px;">
-            <!-- View Stocklist -->
-            <a target="_blank" rel="noopener noreferrer" href="https://rpprospects.com/get-started/" style="display:inline-block;padding:9px 16px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;text-align:center;font-family:Arial,sans-serif;border-radius:2px;background:#c0392b;color:#ffffff;">VIEW STOCKLIST &rarr;</a>
-            <br/><br/>
-            <!-- Book Appointment -->
-            <a target="_blank" rel="noopener noreferrer" href="https://calendar.app.google/VxVPY88BwMPNBNbE7" style="display:inline-block;padding:9px 16px;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;text-align:center;font-family:Arial,sans-serif;border-radius:2px;background:#ffffff;color:#c0392b;border:1.5px solid #c0392b;">&#128197; BOOK APPOINTMENT &rarr;</a>
-            <br/><br/>
-            <!-- Social Icons -->
+  <!-- CTA + SOCIAL ROW -->
+  <tr>
+    <td style="padding:14px 24px;border-bottom:1px solid #eeeeee;">
+      <table cellpadding="0" cellspacing="0" border="0" width="100%">
+        <tr>
+          <td style="vertical-align:middle;">
+            <a target="_blank" rel="noopener noreferrer" href="https://rpprospects.com/get-started/" style="display:inline-block;padding:8px 14px;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;text-align:center;font-family:Arial,sans-serif;border-radius:2px;background:#c0392b;color:#ffffff;white-space:nowrap;">VIEW STOCKLIST &rarr;</a>
+            <span style="display:inline-block;width:8px;"></span>
+            <a target="_blank" rel="noopener noreferrer" href="https://calendar.app.google/VxVPY88BwMPNBNbE7" style="display:inline-block;padding:8px 14px;font-size:10px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;text-decoration:none;text-align:center;font-family:Arial,sans-serif;border-radius:2px;background:#ffffff;color:#c0392b;border:1.5px solid #c0392b;white-space:nowrap;">&#128197; BOOK APPOINTMENT &rarr;</a>
+          </td>
+          <td style="vertical-align:middle;text-align:right;">
             <table cellpadding="0" cellspacing="0" border="0" style="display:inline-table;">
               <tr>
-                <!-- LinkedIn -->
-                <td style="padding-right:8px;">
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/rpprospectsptyltd/" style="display:block;width:32px;height:32px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:32px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" style="vertical-align:middle;">
+                <td style="padding-right:6px;">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/rpprospectsptyltd/" style="display:block;width:30px;height:30px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:30px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" style="vertical-align:middle;">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                     </svg>
                   </a>
                 </td>
-                <!-- Instagram -->
-                <td style="padding-right:8px;">
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/rpprospects/" style="display:block;width:32px;height:32px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:32px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="vertical-align:middle;">
+                <td style="padding-right:6px;">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/rpprospects/" style="display:block;width:30px;height:30px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:30px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" style="vertical-align:middle;">
                       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-linecap="round" stroke-width="2.5"/>
                     </svg>
                   </a>
                 </td>
-                <!-- Facebook -->
-                <td style="padding-right:8px;">
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/rpprospects" style="display:block;width:32px;height:32px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:32px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#ffffff" style="vertical-align:middle;">
+                <td style="padding-right:6px;">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/rpprospects" style="display:block;width:30px;height:30px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:30px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" style="vertical-align:middle;">
                       <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                     </svg>
                   </a>
                 </td>
-                <!-- YouTube -->
                 <td>
-                  <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCHhYn97Qk2KVcaRVQV0TkqQ" style="display:block;width:32px;height:32px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:32px;text-decoration:none;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#c0392b" style="vertical-align:middle;">
+                  <a target="_blank" rel="noopener noreferrer" href="https://www.youtube.com/channel/UCHhYn97Qk2KVcaRVQV0TkqQ" style="display:block;width:30px;height:30px;border-radius:50%;background:#1a1a1a;text-align:center;line-height:30px;text-decoration:none;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="#ffffff" style="vertical-align:middle;">
                       <polygon points="8.5 5.5 19.5 12 8.5 18.5 8.5 5.5"/>
                     </svg>
                   </a>
@@ -339,42 +357,41 @@
     </td>
   </tr>
 
-  <!-- DIVIDER -->
+  <!-- FOOTER -->
   <tr>
-    <td style="padding:0 24px;">
-      <div style="height:1px;background:linear-gradient(to right,#c0392b 30%,#eeeeee 100%);"></div>
-    </td>
-  </tr>
-
-  <!-- DARK FOOTER ROW -->
-  <tr>
-    <td style="background:#1a1a1a;">
+    <td>
       <table cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
           <!-- Addresses -->
-          <td style="padding:18px 22px;vertical-align:top;border-right:1px solid #333333;">
-            <p style="font-size:10px;font-weight:700;letter-spacing:1.8px;color:#999999;font-family:Arial,sans-serif;text-transform:uppercase;margin:0;">QLD</p>
-            <p style="font-size:12.5px;color:#dddddd;font-family:Arial,sans-serif;margin:2px 0 10px;">10A Flemington St., Hendra</p>
-            <p style="font-size:10px;font-weight:700;letter-spacing:1.8px;color:#999999;font-family:Arial,sans-serif;text-transform:uppercase;margin:0;">NSW</p>
-            <p style="font-size:12.5px;color:#dddddd;font-family:Arial,sans-serif;margin:2px 0 10px;">121 Castlereagh St, Sydney</p>
-            <p style="font-size:12px;color:#999999;font-family:Arial,sans-serif;margin:0;">
+          <td style="background:#222222;padding:16px 24px 22px;vertical-align:top;width:50%;border-right:1px solid #333333;">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="font-size:10px;font-weight:700;letter-spacing:1.8px;color:#999999;font-family:Arial,sans-serif;text-transform:uppercase;vertical-align:top;padding-right:12px;white-space:nowrap;">QLD</td>
+                <td style="font-size:12px;color:#dddddd;font-family:Arial,sans-serif;padding-bottom:8px;">10A Flemington St., Hendra</td>
+              </tr>
+              <tr>
+                <td style="font-size:10px;font-weight:700;letter-spacing:1.8px;color:#999999;font-family:Arial,sans-serif;text-transform:uppercase;vertical-align:top;padding-right:12px;white-space:nowrap;">NSW</td>
+                <td style="font-size:12px;color:#dddddd;font-family:Arial,sans-serif;padding-bottom:8px;">121 Castlereagh St, Sydney</td>
+              </tr>
+            </table>
+            <p style="font-size:11.5px;color:#999999;font-family:Arial,sans-serif;margin:4px 0 0;">
               0414 383 166 &nbsp;|&nbsp; <a target="_blank" rel="noopener noreferrer" href="http://www.rpprospects.com" style="color:#c0392b;text-decoration:none;">www.rpprospects.com</a>
             </p>
           </td>
           <!-- Brand -->
-          <td style="padding:18px 22px;vertical-align:middle;">
+          <td style="background:#222222;padding:16px 24px 22px;vertical-align:middle;width:50%;">
             <p style="font-size:10px;color:#888888;font-family:Arial,sans-serif;letter-spacing:0.5px;text-transform:uppercase;margin:0;">Australia's #1 SMSF Portal</p>
-            <table cellpadding="0" cellspacing="0" border="0" style="margin-top:6px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="margin-top:5px;">
               <tr>
                 <td style="vertical-align:middle;padding-right:8px;">
-                  <img src="logo.svg" alt="RP Prospects" style="width:38px;height:38px;display:block;">
+                  <img src="logo.svg" alt="RP Prospects" style="width:34px;height:34px;display:block;">
                 </td>
                 <td style="vertical-align:middle;">
-                  <span style="font-size:22px;font-weight:700;color:#ffffff;font-family:Arial,sans-serif;letter-spacing:-0.5px;">pro<span style="color:#c0392b;">spects</span></span>
+                  <span style="font-size:20px;font-weight:700;color:#ffffff;font-family:Arial,sans-serif;letter-spacing:-0.5px;">pro<span style="color:#c0392b;">spects</span></span>
                 </td>
               </tr>
             </table>
-            <p style="font-size:10px;color:#888888;font-family:Arial,sans-serif;margin-top:6px;line-height:1.4;">End to End Self Managed Super Fund Portal &amp; CRM</p>
+            <p style="font-size:9.5px;color:#888888;font-family:Arial,sans-serif;margin-top:5px;line-height:1.4;">End to End Self Managed Super Fund Portal &amp; CRM</p>
           </td>
         </tr>
       </table>
@@ -383,14 +400,14 @@
 
   <!-- TAGLINE BAR -->
   <tr>
-    <td style="background:#111111;padding:12px 24px;">
+    <td style="background:#222222; padding:10px 24px 18px;">
       <table cellpadding="0" cellspacing="0" border="0" width="100%">
         <tr>
-          <td style="font-size:13px;color:#cccccc;font-family:Arial,sans-serif;">
+          <td style="font-size:12px;color:#cccccc;font-family:Arial,sans-serif;">
             Your Complete <span style="color:#c0392b;font-weight:700;">End-to-End</span> SMSF Property Solution.
           </td>
           <td style="text-align:right;">
-            <a target="_blank" rel="noopener noreferrer" href="https://rpprospects.com/get-started/" style="padding:8px 14px;font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:transparent;color:#c0392b;border:1.5px solid #c0392b;font-family:Arial,sans-serif;border-radius:2px;text-decoration:none;white-space:nowrap;">JOIN OUR PORTAL &rarr;</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://rpprospects.com/get-started/" style="padding:7px 12px;font-size:9.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;background:transparent;color:#c0392b;border:1.5px solid #c0392b;font-family:Arial,sans-serif;border-radius:2px;text-decoration:none;white-space:nowrap;">JOIN OUR PORTAL &rarr;</a>
           </td>
         </tr>
       </table>
